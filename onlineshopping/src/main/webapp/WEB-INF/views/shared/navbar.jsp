@@ -11,11 +11,12 @@
                 <li class="nav-item" id="about">
                     <a class="nav-link" href="/onlineshopping/about">About</a>
                 </li>
-                <li class="nav-item" id="listProduct">
-                    <a class="nav-link" href="/onlineshopping/view">View Products</a>
-                </li>
+                
                 <li class="nav-item" id="contact">
                     <a class="nav-link" href="/onlineshopping/contact">Contact</a>
+                </li>
+                <li class="nav-item" id="products">
+                    <a class="nav-link" href="/onlineshopping/show/all/products">View Products</a>
                 </li>
             </ul>
         </div>

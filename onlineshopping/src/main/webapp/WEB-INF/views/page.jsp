@@ -4,7 +4,6 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <spring:url var="css" value="/resources/css" />
 <spring:url var="js" value="/resources/js" />
-
 <spring:url var="images" value="/resources/images" />
 
 <!DOCTYPE html>
@@ -18,7 +17,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Online Shopping ${title }</title>
+<title>Online Shopping ${title}</title>
 
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
@@ -29,7 +28,7 @@
 <!-- Custom styles for this template -->
 <link href="${css}/myapp.css" rel="stylesheet">
 <script type="text/javascript">
-	window.menu = '${title }';
+	window.menu = '${title}';
 </script>
 
 </head>
@@ -53,9 +52,10 @@
 			<c:if test="${userClickContact==true }">
 				<%@include file="contact.jsp"%>
 			</c:if>
-			<c:if test="${userClickView==true }">
-				<%@include file="products.jsp"%>
+			<c:if test="${userClickAllProducts==true or userClickCategoryProducts==true}">
+				<%@include file="listProducts.jsp"%>
 			</c:if>
+			
 
 		</div>
 		<!-- /.container -->

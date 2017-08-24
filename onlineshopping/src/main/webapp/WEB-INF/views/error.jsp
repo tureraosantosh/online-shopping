@@ -3,8 +3,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <spring:url var="css" value="/resources/css" />
-<spring:url var="js" value="/resources/js" />
-<spring:url var="images" value="/resources/images" />
+
 <c:set var="contextRoot" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,41 +30,43 @@
 
 <!-- Custom styles for this template -->
 <link href="${css}/myapp.css" rel="stylesheet">
-<script type="text/javascript">
-	window.menu = '${title}';
-	window.contextRoot='${contextRoot}'
-</script>
+
 
 </head>
 
 <body>
 	<div class="wrapper">
 		<!-- Navigation -->
-
-		<%@include file="./shared/navbar.jsp"%>
-		<!-- Page Content -->
-		<div class="content">
-			<c:if test="${userClickHome==true}">
-				<%@include file="home.jsp"%>
-			</c:if>
-			<c:if test="${userClickAbout==true}">
-				<%@include file="about.jsp"%>
-			</c:if>
-			<c:if test="${userClickContact==true }">
-				<%@include file="contact.jsp"%>
-			</c:if>
-			<c:if test="${userClickContact==true }">
-				<%@include file="contact.jsp"%>
-			</c:if>
-			<c:if test="${userClickAllProducts==true or userClickCategoryProducts==true}">
-				<%@include file="listProducts.jsp"%>
-			</c:if>
-			<!-- load only when  user clicks show product -->
-			<c:if test="${userClickShowProduct==true}">
-				<%@include file="singleProduct.jsp"%>
-			</c:if>
 			
-
+			<nav clss="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+			<div class="navbar-header">
+			<a class="navbar-brand" href="${contextRoot}/home">Home</a>
+			
+			</div>
+			</div>
+			
+			</nav>
+               
+		<!-- Page Content -->
+		<div clss="content">
+			<div class="container">
+			<div class="row">
+			
+			<div class="col-xs-12">
+			
+			<div class="jumbotron">
+			<h2>${errorTitle }</h2>
+			<hr>
+			<blockquote>
+			${errorDescription}
+			</blockquote>
+			
+			</div>
+			</div>
+			
+			</div>
+			</div>
 		</div>
 		<!-- /.container -->
 
@@ -91,3 +92,4 @@
 </body>
  
 </html>
+ 

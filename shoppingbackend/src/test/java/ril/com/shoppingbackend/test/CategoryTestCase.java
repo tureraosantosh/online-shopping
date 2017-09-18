@@ -7,7 +7,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import javassist.compiler.ast.AssignExpr;
+
 import ril.com.shoppingbackend.dao.CategoryDAO;
 import ril.com.shoppingbackend.dto.Category;
 

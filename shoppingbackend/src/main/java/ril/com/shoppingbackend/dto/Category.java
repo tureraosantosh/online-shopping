@@ -21,9 +21,12 @@ public class Category {
 	
 	@Column(name="image_url")
 	private String imageURL;
-	
 	@Column(name="is_active")
 	private boolean active=true;
+	
+	
+	
+	
 	public int getId() {
 		return id;
 	}

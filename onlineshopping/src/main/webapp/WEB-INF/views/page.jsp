@@ -5,6 +5,8 @@
 <spring:url var="css" value="/resources/css" />
 <spring:url var="js" value="/resources/js" />
 <spring:url var="images" value="/resources/images" />
+
+
 <c:set var="contextRoot" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,6 +67,11 @@
 				<%@include file="singleProduct.jsp"%>
 			</c:if>
 			
+			<!-- load only when  user clicks manage product -->
+			<c:if test="${userClickMangerProducts==true}">
+				<%@include file="managedProducts.jsp"%>
+			</c:if>
+			
 
 		</div>
 		<!-- /.container -->
@@ -72,10 +79,8 @@
 		<!-- Footer -->
 
 		<%@include file="./shared/footer.jsp"%>
-
-
-
-
+		
+		
 		<!-- Bootstrap core JavaScript -->
 		<script src="${js}/jquery.min.js"></script>
 		<script src="${js}/popper.min.js"></script>
@@ -87,6 +92,11 @@
 		<script src="${js}/dataTables.bootstrap.js"></script>
 		<!--  SELF CODED JAVASCRIPT -->
 		<script src="${js}/myapp.js"></script>
+		<!-- for the Alert javascript bootbox -->
+		<script src="${js}/bootbox.min.js"></script>
+		<!-- JQuery Client Side Validation  -->
+		<script src="${js}/jquery.validate.js"></script>
+		
 	</div>
 </body>
  

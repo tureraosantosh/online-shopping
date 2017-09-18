@@ -34,8 +34,8 @@ public class PageController {
 	{
 		ModelAndView mv=new ModelAndView("page");
 		mv.addObject("title", "Home");
-		logger.info("Inside page controller index method  this is for Info");
-		logger.debug("Inside page controller index method  this is for debug");
+		//logger.info("Inside page controller index method  this is for Info");
+		//logger.debug("Inside page controller index method  this is for debug");
 		mv.addObject("categories", categoryDAO.list());
 		mv.addObject("userClickHome", true);
 		return mv;

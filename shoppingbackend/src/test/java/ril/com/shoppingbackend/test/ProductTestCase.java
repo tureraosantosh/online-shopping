@@ -52,7 +52,7 @@ public void testCRUDProduct()
 }*/
 
 
-@Test
+/*@Test
 public void testListActiveProducts()
 {
 	assertEquals(" Something Went Wrong while fetching a new product ! ",
@@ -82,5 +82,5 @@ public void testGetLatestProducts()
 				.getLatestActiveProducts(3)
 					.size());
 				
-}
+}*/
 }

@@ -90,7 +90,7 @@
        <div class="form-group">
         <label class="control-label col-md-4" for="postalCode">Postal Code</label>
         <div class="col-md-8">
-         <sf:input type="text" path="postCode" class="form-control"
+         <sf:input type="text" path="postalCode" class="form-control"
           placeholder="XXXXXX" />
         </div>
        </div>       

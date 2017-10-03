@@ -8,8 +8,10 @@ $(function() {
 		break;
 	case 'Home':
 		$('#home').addClass('active');
+		console.log("hello this is log");
 		break;
 	case 'All Products':
+		
 		$('#products').addClass('active');
 		break;
 
@@ -35,10 +37,11 @@ $(function() {
 	 * 
 	 *  ];
 	 */
+	console.log("hello this is log");
 	$table = $('#productListTable');
 	// execute the bellow code only where we have this table
 	if ($table.length) {
-		// console.log("this is inside ");
+		console.log("this is inside ");
 
 		var jsonUrl = '';
 
@@ -114,7 +117,7 @@ $(function() {
 											+ window.contextRoot
 											+ '/show/'
 											+ data
-											+ '/product" class="btn btn-primary"/><span class="glyphicon glyphicon-eye-open"></span></a>&#160;';
+											+ '/product" class="btn btn-primary"/><span class="glyphicon glyphicon-eye-open">o</span></a>&#160;';
 
 									if (row.quantity < 1) {
 										str += '<a href="javascript:void(0)" class="btn btn-success disabled"/><span class="glyphicon glyphicon-shopping-cart"></span> </a>';
@@ -304,6 +307,24 @@ $(function() {
 					}
 				});
 	}
+	
+	
+	// to tackale the csrf
+	
+	var token=$('meta[name="_csrf"]').attr('content');
+	var header=$('meta[name="_csrf_header"]').attr('content');
+	
+	if(token.length>0&&header.length>0)
+		{
+		//set the  token header for the ajaxx request
+		
+		$(document).ajaxSend(function(e,xhr,options)
+				
+		{
+			 xhr.setRequestHeader(header,token);
+		})
+		
+		}
 	//-------------------------------------------------------------------------
 	//validation code for category
 	//-------------------------------------------------------------------------
@@ -359,4 +380,58 @@ $(function() {
 		
 		}
 	//-------------------------------------------------------------------------------------------------------------
+
+
+var $categoryForm=$('#categoryForm');
+	
+	if($categoryForm.length)
+		{
+		$categoryForm.validate({
+			
+			rules:{
+				
+				name:
+					{
+					required:true,
+					minlength:2
+					
+					},
+					description:
+						{
+						required:true,
+						
+						
+						},
+						
+						messages:
+							{
+							name:
+								{
+								required:'Please add the category name !',
+								minlength:'minimum length should be 2 '
+								
+								},
+						description:
+							{
+							required:'Please add the Descritpion !'
+							
+							}
+							},
+						errorElement:'em',
+						errorPlacement:function(error,element)
+						{
+							//add the class of the help-block.
+							error.addClass('help-block');
+							//add the error element after the input element	
+							error.insertAfter(element);
+						}
+						
+				
+			}
+			
+		})
+		
+		}
+
+
 });

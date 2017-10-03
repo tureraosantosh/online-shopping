@@ -1,6 +1,7 @@
 package ril.com.onlineshopping.handler;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import ril.com.onlineshopping.model.RegisterModel;
@@ -13,6 +14,10 @@ import ril.com.shoppingbackend.dto.User;
 public class RegisterHandler {
 	@Autowired
 	private UserDAO userDAO;
+	
+	
+	@Autowired
+	private  BCryptPasswordEncoder passwordEncoder;
 	
 	public RegisterModel init()
 	{
@@ -27,7 +32,7 @@ public class RegisterHandler {
 	public void addBilling(RegisterModel registerModel,Address address)
 	{
 		registerModel.setBilling(address);
-	}
+	} 
 	
 	public String saveAll(RegisterModel registerModel)
 	{
@@ -41,6 +46,10 @@ public class RegisterHandler {
 			cart.setUser(user);
 			user.setCart(cart);
 		}
+
+		//
+		
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		
 		//save the user 
 		userDAO.addUser(user);
@@ -49,7 +58,7 @@ public class RegisterHandler {
 	//fetch the addrsss
 		
 		Address billing =registerModel.getBilling();
-		billing.setId(new Integer(4));
+		billing.setUserId(user.getId());
 		billing.setBilling(true);
 		
 		//save the address

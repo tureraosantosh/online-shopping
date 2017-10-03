@@ -18,7 +18,8 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-
+	<meta name="_csrf" content="${_csrf.token}">
+	<meta name="_csrf_header" content="${_csrf.headerName}">
 <title>Online Shopping ${title}</title>
 
 <!-- Bootstrap core CSS -->
@@ -71,13 +72,9 @@
 			<c:if test="${userClickMangerProducts==true}">
 				<%@include file="managedProducts.jsp"%>
 			</c:if>
-			
-
 		</div>
 		<!-- /.container -->
-
 		<!-- Footer -->
-
 		<%@include file="./shared/footer.jsp"%>
 		
 		
